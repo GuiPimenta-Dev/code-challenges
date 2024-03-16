@@ -20,12 +20,12 @@ class Particle {
     this.y += random(-1, 1);
   }
 
-  render() {
+  render(r, g, b) {
     noStroke();
     if (this.highlight) {
       fill(255);
     } else {
-      fill(100);
+      fill(r, g, b);
     }
     ellipse(this.x, this.y, this.r * 2);
   }

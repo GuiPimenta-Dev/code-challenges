@@ -65,7 +65,7 @@
 //   background(0);
 //   for (let p of particles) {
 //     p.move();
-//     p.render();
+//     p.render(255, 0, 0);
 //     p.setHighlight(false);
 //   }
 
@@ -91,7 +91,7 @@ let particles = [];
 function setup() {
   createCanvas(600, 400);
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 2000; i++) {
     particles[i] = new Particle(random(width), random(height));
   }
 }
@@ -105,7 +105,7 @@ function draw() {
     let point = new Point(p.x, p.y, p);
     quadtree.insert(point);
     p.move();
-    p.render();
+    p.render(0, 0, 255);
     p.setHighlight(false);
   }
 
