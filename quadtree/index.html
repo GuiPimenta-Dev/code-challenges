@@ -5,25 +5,44 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <meta charset="utf-8" />
-
 </head>
 
-<body>
-  <div class="container">
-    <div id="canvas-container"></div> <!-- You'll dynamically insert the canvas here -->
-    <div id="info">
-      <p id="particleCount"></p>
-      <p id="frameRate"></p>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+  <div class="container mx-auto mt-8 px-4">
+    <h1 class="text-center text-4xl my-4">Quadtree</h1>
+    <div class="bg-white p-4 rounded-lg shadow-lg overflow-hidden flex-col justify-center items-center">
+      <div id="canvas-container" class="flex justify-center items-center"></div>
+      <div class="mt-3 flex justify-center items-center">
+        <div class="flex-col justify-center items-center">
+        </div>
+        <div class="flex-col">
+          <p id="frameRate" class="text-gray-700"></p>
+          <p id="particleCount" class="text-gray-700"></p>
+          <input type="range" id="particleSlider" min="10" max="3000" value="100" class="slider mb-4">
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center items-center">
+      <button id="toggleButton" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <div id="quadtreeLabel" class="text-center font-bold">Enable Quadtree</div>
+      </button>
     </div>
   </div>
 
+  <div class="container mx-auto mt-8 px-4">
+    <div class="bg-white p-4 rounded-lg shadow-lg overflow-hidden">
+      <h2 class="text-center text-2xl my-4">What is a Quadtree?</h2>
+      <p class="text-gray-700 text-md">
+        A quadtree is a tree data structure in which each internal node has exactly four children. Quadtrees are most often used to partition a two-dimensional space by recursively subdividing it into four quadrants or regions. They are used in various fields, including graphics, geometry, and spatial indexing. In the context of this simulation, the quadtree optimizes the process of finding potential particle collisions, significantly improving performance as the number of particles increases.
+      </p>
+    </div>
+  </div>
 
   <script src="sketch.js"></script>
   <script src="quadtree.js"></script>
   <script src="particle.js"></script>
-
 </body>
 
 </html>
